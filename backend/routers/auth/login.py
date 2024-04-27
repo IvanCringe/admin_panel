@@ -1,6 +1,4 @@
-from datetime import datetime, timezone
-from fastapi import APIRouter, HTTPException, Request, Response
-from fastapi.responses import JSONResponse, RedirectResponse
+from fastapi import APIRouter, HTTPException, Response
 from database.models import User
 import bcrypt
 import jwt
