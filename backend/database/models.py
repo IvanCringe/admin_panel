@@ -39,6 +39,11 @@ class User(BaseModel):
     token = CharField(null = True)
     unhash_password = CharField(null = True)
 
+class Product(BaseModel):
+    name = CharField()
+    description =CharField()
+    price = FloatField()
+    count = IntegerField()
 
 @router.on_event('startup')
 async def startup():
