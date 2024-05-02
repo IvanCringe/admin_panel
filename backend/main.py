@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import auth, text
+from routers import auth, text, product
 from database.models import router as db_router
 
 app = FastAPI()

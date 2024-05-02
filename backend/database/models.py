@@ -17,7 +17,6 @@ class BaseModel(Model):
             self,
             exclude=[
                 User.password,
-                User.unhash_password,
                 User.token
             ]
         )
@@ -37,7 +36,6 @@ class User(BaseModel):
     password = CharField()
     admin = BooleanField(default=False)
     token = CharField(null = True)
-    unhash_password = CharField(null = True)
 
 class Product(BaseModel):
     name = CharField()
@@ -48,7 +46,7 @@ class Product(BaseModel):
 @router.on_event('startup')
 async def startup():
     database.connect()
-    database.create_tables([User], safe = True)
+    database.create_tables([User, Product], safe = True)
 
 @router.on_event('shutdown')
 async def shutdown():
